@@ -171,8 +171,12 @@ class VNode(Node):
             msg = self.init
 
             # Product over incoming messages
+            # todo: check the modification
             for n in self.neighbors(tnode):
-                msg *= self.graph[n][self]['object'].get_message(n, self)
+                in_msg = self.graph[n][self]['object'].get_message(n, self)
+                if in_msg:
+                    msg *= in_msg
+                # msg *= self.graph[n][self]['object'].get_message(n, self)
 
             return msg
 
@@ -264,8 +268,12 @@ class FNode(Node):
         msg = self.factor
 
         # Product over incoming messages
+        # todo: check this modification
         for n in self.neighbors(tnode):
-            msg *= self.graph[n][self]['object'].get_message(n, self)
+            in_msg = self.graph[n][self]['object'].get_message(n, self)
+            if in_msg:
+                msg *= in_msg
+            # msg *= self.graph[n][self]['object'].get_message(n, self)
 
         # Integration/Summation over incoming variables
         for n in self.neighbors(tnode):
