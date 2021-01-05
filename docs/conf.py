@@ -60,10 +60,10 @@ copyright = '2015, Daniel Bartel'
 try:
     release = pkg_resources.get_distribution('fglib').version
 except pkg_resources.DistributionNotFound:
-    print 'To build the documentation, the distribution information of fglib'
-    print 'has to be available.  Either install the package into your'
-    print 'development environment or run "setup.py develop" to setup the'
-    print 'metadata.'
+    print('To build the documentation, the distribution information of fglib')
+    print('has to be available.  Either install the package into your')
+    print('development environment or run "setup.py develop" to setup the')
+    print('metadata.')
     sys.exit(1)
 del pkg_resources
 
